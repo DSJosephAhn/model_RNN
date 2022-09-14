@@ -111,6 +111,7 @@ visualize_result('loss', 'val_loss')
 ################################################################################
 ## multi-step prediction model
 ## using for loop and single-step prediction model
+n_steps= 50
 series= generate_time_series(1, n_steps + 10)
 X_new, Y_new= series[:, :n_steps], series[:, n_steps:]
 X= X_new
@@ -178,6 +179,9 @@ visaulize_pred(n_steps, history, y_new, y_graph_pred)
 m = tf.keras.metrics.RootMeanSquaredError()
 m.update_state(list(y_new), list(y_graph_pred))
 m.result().numpy()
+
+
+
 
 ################################################################################
 ################################################################################
